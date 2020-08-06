@@ -1,0 +1,147 @@
+@charset "UTF-8";
+@media screen and (min-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-rows: 10% 90% 10%;
+    grid-template-columns: 15% 70% 15%;
+    min-height: 110vh;
+    margin: auto;
+  }
+  header {
+    grid-row: 1/2;
+    grid-column: 1/4;
+  }
+  .page-explain {
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+  }
+  section {
+    grid-row: 2/3;
+    grid-column: 1/4;
+  }
+  footer {
+    grid-row: 3/4;
+    grid-column: 1/4;
+  }
+
+  .fa-plus {
+    display: none;
+  }
+
+  .modal {
+    display:none;
+  }
+
+  .nav {
+    display: flex !important;
+    list-style: none;
+    justify-content: left;
+    padding-bottom: 1rem;
+    background-color: whitesmoke;
+  }
+  li {
+    justify-content: space-evenly;
+    padding-top: 1rem;
+    padding-left: 0.4rem;
+  }
+  a {
+    text-decoration: none;
+    margin-right: 1rem;
+    color:rgb(34, 34, 34);
+
+  }
+  
+  #content {
+    text-align: center;
+  }
+
+  img {
+    width: 53%;
+  }
+
+  .course-explanation {
+    display: flex;
+  }
+  .each-course {
+    width: 50%;
+  }
+  .lesson-explain {
+    padding: 20px;
+  }
+  .copyright {
+    padding-top: 3rem;
+  }
+} /*# sourceMappingURL=style.css.map */
+
+@media screen and (min-width: 100px) and (max-width: 600px) {
+  .container {
+    display: grid;
+    grid-template-rows: 10% 90% 10%;
+    grid-template-columns: 15% 70% 15%;
+    min-height: 160vh;
+  }
+  header {
+    grid-row: 1/2;
+    grid-column: 2/4;
+  }
+  section {
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+  footer {
+    grid-row: 3/4;
+    grid-column: 1/4;
+  }
+
+  .nav {
+    display: none !important;
+    list-style: none;
+    justify-content: center;
+  }
+  li {
+    margin: 0 5rem;
+  }
+  #content {
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .course-explanation {
+    display: block;
+  }
+  .each-course {
+    width: 80%;
+    margin: auto;
+  }
+  .copyright {
+    padding-top: 5rem;
+  }
+
+  .modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    text-align: center;
+    display: none;
+  }
+  /* modal */
+  .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 4px;
+    width: 360px;
+    min-height: 450px;
+  }
+} /*# sourceMappingURL=style.css.map */

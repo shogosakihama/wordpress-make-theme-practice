@@ -1,0 +1,702 @@
+@charset "UTF-8";
+
+/*---------------------------------
+  variable
+---------------------------------*/
+$content-width: 1170px;
+$footer-width: 1390px;
+$main-width: 830px;
+$sidebar-width: 260px;
+$sp-breakpoints: 959px;
+
+/*---------------------------------
+  mixin
+---------------------------------*/
+@mixin sp {
+  @media (max-width: $sp-breakpoints) {
+    @content;
+  }
+}
+
+// 先頭行だけを上に揃える
+@mixin lhCrop($line-height) {
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((1 - #{$line-height}) * 0.5em);
+  }
+}
+
+// vw計算
+@function get_vw($size, $viewport: 375) {
+  $rate: 100 / $viewport;
+  @return $rate * $size * 1vw;
+}
+
+@mixin fz_vw($font_size: 10) {
+  font-size: $font_size * 1px;
+  font-size: get_vw($font_size);
+}
+
+/*---------------------------------
+  font
+---------------------------------*/
+@font-face {
+  font-family: 'myfont';
+  src: url('fonts/SpaceMono-Bold.ttf') format('truetype');
+}
+
+/*---------------------------------
+  reset
+---------------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  font-family: '游ゴシック', YuGothic, 'Yu Gothic', 'Noto Sans JP',
+    'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Verdana,
+    'ＭＳ Ｐゴシック', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.6rem;
+  line-height: normal;
+  color: #000;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  word-break: break-all;
+  &:hover {
+    opacity: 0.7;
+    transition: 0.3s ease-in-out;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+h1 {
+  letter-spacing: 0.6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4.2rem;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0.6rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 212.5%;
+  @include sp {
+    @include fz_vw(16);
+  }
+}
+
+h3 {
+  font-size: 200%;
+  @include sp {
+    @include fz_vw(14);
+  }
+}
+
+h4 {
+  font-size: 150%;
+  @include sp {
+    @include fz_vw(12);
+  }
+}
+
+h5 {
+  font-size: 120%;
+  @include sp {
+    @include fz_vw(10);
+  }
+}
+
+h6 {
+  font-size: 100%;
+  @include sp {
+    @include fz_vw(8);
+  }
+}
+
+.pc {
+  display: block !important;
+  @include sp {
+    display: none !important;
+  }
+}
+
+.sp {
+  display: none !important;
+  @include sp {
+    display: block !important;
+  }
+}
+
+/*---------------------------------
+  page-title
+---------------------------------*/
+.page-title {
+  word-break: break-all;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 20px;
+  letter-spacing: 0.6rem;
+  font-size: 3rem;
+  font-weight: bold;
+  @include sp {
+    @include fz_vw(20);
+  }
+}
+
+/*---------------------------------
+  date-title
+---------------------------------*/
+.date-title {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 10px;
+  margin-bottom: 15px;
+
+  @include sp {
+    grid-column-gap: 2px;
+    margin-bottom: 5px;
+  }
+
+  &__mark {
+    font-family: 'myfont';
+    font-size: 8rem;
+    font-weight: bold;
+    align-self: center;
+    line-height: 30%;
+
+    @include sp {
+      @include fz_vw(44);
+      line-height: 10%;
+    }
+  }
+
+  &__date {
+    letter-spacing: 0.2rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    align-self: center;
+    padding-top: 5px;
+
+    @include sp {
+      @include fz_vw(7);
+      letter-spacing: 0.1rem;
+      padding-top: 2px;
+    }
+  }
+}
+
+/*---------------------------------
+  contents
+---------------------------------*/
+.contents {
+  max-width: $content-width;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @include sp {
+    max-width: initial;
+  }
+}
+
+/*---------------------------------
+  header
+---------------------------------*/
+header {
+  padding: 50px 0 75px;
+
+  @include sp {
+    padding: 20px 0 60px;
+  }
+
+  .inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .logo {
+      img {
+        width: 100%;
+        max-width: 234px;
+        @include sp {
+          max-width: 150px;
+        }
+      }
+    }
+
+    .sns-btn {
+      right: 0;
+      width: 28px;
+      justify-self: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      @include sp {
+        width: 20px;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/*---------------------------------
+  container
+---------------------------------*/
+.container {
+  display: grid;
+  grid-template-columns: $main-width $sidebar-width;
+  grid-column-gap: 50px;
+  margin-bottom: 100px;
+
+  @include sp {
+    grid-template-columns: none;
+    grid-column-gap: 0;
+    grid-row-gap: 100px;
+    margin-bottom: 50px;
+  }
+}
+
+/*---------------------------------
+  sidebar
+---------------------------------*/
+.sidebar {
+  &__catch {
+    font-weight: bold;
+    line-height: 2.2;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 80px;
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 0.6rem;
+      margin-bottom: 20px;
+      line-height: 1.8;
+      @include lhCrop(2);
+
+      span {
+        color: #3cbcd0;
+      }
+    }
+
+    img {
+      width: 70px;
+      vertical-align: middle;
+    }
+    span {
+      vertical-align: middle;
+    }
+  }
+
+  &__list {
+    margin-bottom: 50px;
+
+    h4 {
+      letter-spacing: 0.6rem;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      @include sp {
+        @include fz_vw(12);
+        margin-bottom: 10px;
+      }
+    }
+
+    ul {
+      @include sp {
+        border-bottom: 1px solid #000;
+      }
+    }
+
+    li {
+      font-weight: bold;
+      border-top: 1px solid #000;
+      padding-top: 25px;
+      margin-bottom: 25px;
+      font-size: 1.4rem;
+
+      @include sp {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-gap: 15px;
+      }
+
+      img {
+        width: 260px;
+        height: 173px;
+        padding: 0 1px;
+        object-fit: cover;
+        @include sp {
+          width: 32vw;
+          height: 21.333vw;
+        }
+      }
+
+      .date {
+        letter-spacing: 0.2rem;
+        font-weight: bold;
+        margin: 5px 0;
+
+        @include sp {
+          @include fz_vw(8);
+          letter-spacing: 0.2rem;
+          margin: 0;
+        }
+      }
+
+      .title {
+        @include sp {
+          @include fz_vw(12);
+          margin: 0 0 5px;
+        }
+      }
+    }
+
+    .wpp-thumbnail {
+      float: none;
+      margin: 0;
+    }
+  }
+
+  &__ranking {
+    ul {
+      counter-reset: posts-rank;
+    }
+
+    li {
+      position: relative;
+
+      &:before {
+        content: counter(posts-rank);
+        counter-increment: posts-rank;
+        position: absolute;
+        top: 24px;
+        left: 0;
+        z-index: 1;
+        background: white;
+        font-size: 3.4rem;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+        line-height: 1.4;
+        width: 48px;
+        height: 48px;
+
+        @include sp {
+          @include fz_vw(20);
+          width: 8vw;
+          height: 8vw;
+        }
+      }
+    }
+  }
+}
+
+/*---------------------------------
+  banner カスタム投稿
+---------------------------------*/
+.banner {
+  a {
+    display: block;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*---------------------------------
+  wp-pagenavi
+---------------------------------*/
+.pagination {
+  @include sp {
+    margin-top: 70px;
+  }
+
+  .nav-links {
+    text-align: center;
+    font-family: '小塚ゴシック Pro', 'Kozuka Gothic Pro', sans-serif;
+
+    .current {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin: 2px;
+      border-radius: 20px;
+      border: 1px solid #4cb1da;
+      background: #4cb1da;
+      color: #fff;
+      font-size: 2.2rem;
+      line-height: 4rem;
+      font-weight: bold;
+
+      @include sp {
+        width: 5.333vw;
+        height: 5.333vw;
+        font-size: 3.2vw;
+        @include fz_vw(14);
+        line-height: 5.2vw;
+      }
+    }
+
+    .dots {
+      display: inline-block;
+      margin: 2px;
+      font-size: 2.2rem;
+      color: #898989;
+      font-weight: bold;
+      line-height: 30px;
+    }
+
+    a {
+      &.page-numbers {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        margin: 2px;
+        border-radius: 20px;
+        border: none;
+        font-size: 2.2rem;
+        line-height: 4rem;
+        text-decoration: none;
+        border: 1px solid #898989;
+        color: #898989;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+
+        @include sp {
+          width: 6vw;
+          height: 6vw;
+          @include fz_vw(15);
+          line-height: 6vw;
+        }
+
+        &:hover {
+          border: 1px solid #4cb1da;
+          background: #4cb1da;
+          color: #fff;
+          transition: all 0.3s;
+        }
+      }
+
+      &.prev.page-numbers {
+        display: block;
+        float: left;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        background: url(./images/common/page-prev.png) no-repeat center left;
+        background-size: contain;
+        width: 120px;
+        @include sp {
+          width: 18vw;
+        }
+      }
+
+      &.next.page-numbers {
+        display: block;
+        float: right;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: url(./images/common/page-next.png) no-repeat center right;
+        background-size: contain;
+        width: 85px;
+        @include sp {
+          width: 14vw;
+        }
+      }
+    }
+  }
+
+  h2.screen-reader-text {
+    display: none;
+  }
+}
+
+/*---------------------------------
+  footer
+---------------------------------*/
+.keyword {
+  background-color: #ededed;
+  text-align: center;
+  padding: 70px 15px 100px;
+
+  @include sp {
+    padding: 50px 15px;
+    margin-bottom: 50px;
+  }
+
+  &__logo {
+    width: 250px;
+    margin: 0 auto 60px;
+
+    @include sp {
+      width: 50vw;
+      margin: 0 auto 30px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__list {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    line-height: 2.2;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+    // justify-content: space-around;
+
+    a {
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    @include sp {
+      width: 90%;
+      @include fz_vw(11);
+    }
+  }
+}
+
+.footer-banner {
+  width: 758px;
+  margin: 75px auto;
+  @include sp {
+    width: 100%;
+    margin: 0 auto 50px;
+    padding: 0 15px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+footer {
+  max-width: $footer-width;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  .footer {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    grid-column-gap: 50px;
+    align-items: end;
+    padding: 45px 15px;
+    border-top: 1px solid black;
+
+    @include sp {
+      grid-template-columns: none;
+      grid-column-gap: 0;
+      grid-template-rows: auto;
+      grid-row-gap: none;
+      padding: 50px 10px 15px;
+    }
+
+    &__logo {
+      img {
+        width: 100%;
+        max-width: 180px;
+        @include sp {
+          max-width: 38.933vw;
+          margin-bottom: 45px;
+        }
+      }
+    }
+
+    &__catch {
+      img {
+        width: 100%;
+        max-width: 360px;
+        @include sp {
+          max-width: 68.267vw;
+          margin-bottom: 45px;
+        }
+      }
+    }
+
+    &__sns-btn {
+      display: grid;
+      grid-template-columns: repeat(3, 30px);
+      grid-column-gap: 15px;
+
+      @include sp {
+        grid-template-columns: repeat(3, 25px);
+        margin-bottom: 90px;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    &__nav {
+      font-size: 1.4rem;
+      text-align: right;
+      font-weight: bold;
+      @include sp {
+        @include fz_vw(9);
+      }
+
+      &__list {
+        position: relative;
+        letter-spacing: 0.6rem;
+
+        &:before {
+          position: absolute;
+          top: 50%;
+          margin-top: -8px;
+          left: -20px;
+          content: '\025b6';
+          font-size: 1rem;
+        }
+      }
+
+      .copyright {
+        border-left: 1px solid #000;
+        padding: 1px 0 1px 15px;
+      }
+    }
+  }
+}

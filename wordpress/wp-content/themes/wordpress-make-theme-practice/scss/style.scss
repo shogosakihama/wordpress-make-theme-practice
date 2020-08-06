@@ -1,0 +1,63 @@
+$breakpoints: (
+  sm: "screen and (min-width: 400px)",
+  m: "screen and (min-width: 768px)",
+  l: "screen and (min-width: 1000px)",
+  xl: "screen and (min-width: 1200px)",
+);
+@mixin media($breakpoint) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin media_query{
+  @media (max-width:1200px){
+      @content;
+  }
+}
+
+@include media_query{
+  .container {
+    display: grid;
+    grid-template-rows: 10% 90% 10%;
+    grid-template-columns: 15% 70% 15%;
+    min-height: 110vh;
+  }
+  header {
+    grid-row: 1/2;
+    grid-column: 1/4;
+  }
+  section {
+    grid-row: 2/3;
+    grid-column: 1/4;
+  }
+  footer {
+    grid-row: 3/4;
+    grid-column: 1/4;
+  }
+
+  .nav {
+    display: flex !important;
+    list-style: none;
+    justify-content: center;
+  }
+  li {
+    margin: 0 5rem;
+  }
+  #content {
+    text-align: center;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .course-explanation {
+    display: flex;
+  }
+  .each-course {
+    width: 50%;
+  }
+}
+
+
