@@ -1,4 +1,5 @@
 <?php
+define('WP_CACHE', true); // WP-Optimize Cache
 /**
  * The base configuration for WordPress
  *
@@ -17,26 +18,19 @@
  *
  * @package WordPress
  */
-
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'wordpress');
-
 /** MySQL database username */
 define( 'DB_USER', 'wordpress');
-
 /** MySQL database password */
 define( 'DB_PASSWORD', 'wordpress');
-
 /** MySQL hostname */
 define( 'DB_HOST', 'db:3306');
-
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8');
-
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '');
-
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -54,9 +48,7 @@ define( 'AUTH_SALT',        '47ec0f9ba8a7ae6253260b478963085f4217b615');
 define( 'SECURE_AUTH_SALT', '5c9b807283062732092960b5c57376f6a2e5bf5a');
 define( 'LOGGED_IN_SALT',   'ac2c7cd9b1cfb0fbf14f8a584d9f7dec2e63f7ea');
 define( 'NONCE_SALT',       '515c6aa177a1c5f402ae6e632010f34058ddb224');
-
 /**#@-*/
-
 /**
  * WordPress Database Table prefix.
  *
@@ -64,7 +56,6 @@ define( 'NONCE_SALT',       '515c6aa177a1c5f402ae6e632010f34058ddb224');
  * a unique prefix. Only numbers, letters, and underscores please!
  */
 $table_prefix = 'wp_';
-
 /**
  * For developers: WordPress debugging mode.
  *
@@ -78,19 +69,15 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
-
 // If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
 // see also http://codex.wordpress.org/Administration_Over_SSL#Using_a_Reverse_Proxy
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
 	$_SERVER['HTTPS'] = 'on';
 }
-
 /* That's all, stop editing! Happy publishing. */
-
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
 }
-
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';

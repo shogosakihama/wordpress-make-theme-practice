@@ -57,6 +57,8 @@
 
   img {
     width: 53%;
+    border-radius: 1rem;
+
   }
 
   .course-explanation {
@@ -71,18 +73,35 @@
   .copyright {
     padding-top: 3rem;
   }
+  .posts {
+    display: inline-block;
+    background-color: cornsilk;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top:4rem;
+  }
+  .sp-posts {
+    display: none;
+  }
+  br {
+    display:none;
+  }
+  table {
+    
+  }
+
 } /*# sourceMappingURL=style.css.map */
 
 @media screen and (min-width: 100px) and (max-width: 600px) {
   .container {
     display: grid;
-    grid-template-rows: 10% 90% 10%;
-    grid-template-columns: 15% 70% 15%;
+    grid-template-rows: 7% 90% 7%;
+    grid-template-columns: 10% 80% 10%;
     min-height: 160vh;
   }
   header {
     grid-row: 1/2;
-    grid-column: 2/4;
+    grid-column: 1/4;
   }
   section {
     grid-row: 2/3;
@@ -98,8 +117,10 @@
     list-style: none;
     justify-content: center;
   }
+  .navbar-collapse{
+    background-color: whitesmoke;
+  }
   li {
-    margin: 0 5rem;
   }
   #content {
     text-align: center;
@@ -107,6 +128,7 @@
 
   img {
     width: 100%;
+    margin-bottom: -0.7rem;
   }
 
   .course-explanation {
@@ -118,6 +140,15 @@
   }
   .copyright {
     padding-top: 5rem;
+  }
+
+  .modal-background_escape {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
   }
 
   .modal-background {
@@ -141,7 +172,50 @@
     transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 4px;
-    width: 360px;
-    min-height: 450px;
+    width: 80vw;
+    padding: 20px;
   }
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    font-size: 1.7rem;
+    margin: 8px;
+  }
+  .posts {
+    display: none;
+  }
+  .sp-posts{
+    margin-top: 5rem;
+  }
+  .article-title{
+    margin: 20px;
+  }
+  .button {
+    float: right;
+    margin: 2rem 1rem;
+  }
+
+  .page-explain_title{
+    margin:2rem 0 1rem 0;
+  }
+  .page-explain {
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 0.5rem;
+    margin-top: -1.5rem;
+  }
+  p {
+    margin-bottom: 4rem;
+  }
+  .fa-plus{
+    height: 14.5vh;
+    background-color: whitesmoke;
+  }
+ 
+
 } /*# sourceMappingURL=style.css.map */

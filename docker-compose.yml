@@ -21,7 +21,8 @@ services:
      image: mysql:5.7
      container_name: wordpress-make-theme-practice_db
      ports:
-      - "4306:3306"
+      - "3306"
+      # - "4306:3306"
      volumes:
        - db_data:/var/lib/mysql
      restart: always
