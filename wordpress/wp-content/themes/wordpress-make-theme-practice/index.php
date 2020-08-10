@@ -10,22 +10,22 @@
       <div id="content-wrap">
 
         <div id="main" class="">
-          <h1 class="page-explain_title">これはマークアップの練習です</h1>
+          <h1 class="page-explain_title">これはWordPressの練習です</h1>
           <p class="page-explain">
-            マークアップ・スクールは自分でホームページ制作・Web集客したい方向けの少人数制個別指導のスクール・塾です。
+            デザインは雑ですが、WordPressの基本的な機能を練習しています。
             <br><br>
-            継続6ヶ月コースとお試し1ヶ月コースから選択して受講できます。
+            このindexページはエディターでマークアップしています。
           </p>
           <div class="course-explanation">
             <div class="each-course">
-              <p><img class="animate__bounceIn" src="<?php echo get_template_directory_uri(); ?>/images/IMG_2589.JPG" alt="6ヶ月コース画像"></p>
-              <h2 class="text-center">しっかり6ヶ月コース</h2>
-              <p class="lesson-explain">ホームページ作成からWeb集客まで一通り習得して売上拡大したい方向けのコース</p>
+              <p><a class="image" href="http://localhost:8000/?page_id=9"><img class="animate__bounceIn" src="<?php echo get_template_directory_uri(); ?>/images/IMG_2589.JPG" alt="6ヶ月コース画像"></a></p>
+              <h2 class="text-center">固定ページ</h2>
+              <p class="lesson-explain">固定ページの投稿を確認することができます。</p>
             </div>
             <div class="each-course">
-              <p><img class="animate__bounceIn" src="<?php echo get_template_directory_uri(); ?>/images/IMG_2589.JPG" alt="1ヶ月コース画像"></p>
-              <h2 class="text-center">お試し1ヶ月コース</h2>
-              <p class="lesson-explain">特定範囲のみ習いたい・まずは試しに受講してみたい方向けのコース</p>
+              <p><a class="image" href="http://localhost:8000/?p=16"><img class="animate__bounceIn" src="<?php echo get_template_directory_uri(); ?>/images/IMG_2589.JPG" alt="1ヶ月コース画像"></a></p>
+              <h2 class="text-center">投稿ページ</h2>
+              <p class="lesson-explain">投稿ページの投稿を確認することできます。</p>
             </div>
           </div>
 
